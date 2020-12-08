@@ -66,7 +66,11 @@ function HomeScreen({ navigation }) {
 }
 
 function DetailsScreen({ route }) {
-  return <Text>Er... more stuff here soon?</Text>;
+  return (
+    <Text>
+      {route.params.red},{route.params.green},{route.params.blue}
+    </Text>
+  );
 }
 
 const Stack = createStackNavigator();
