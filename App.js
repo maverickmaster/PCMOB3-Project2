@@ -11,7 +11,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 import BlockRGB from "./components/BlockRGB";
 
-function HomeScreen() {
+function HomeScreen({ navigation }) {
   const [colorArray, setColorArray] = useState([
     { red: 255, green: 200, blue: 0, id: "0" },
     { red: 0, green: 255, blue: 0, id: "1" },
@@ -19,7 +19,13 @@ function HomeScreen() {
   ]);
 
   function renderItem({ item }) {
-    return <BlockRGB red={item.red} green={item.green} blue={item.blue} />;
+    return (
+      <TouchableOpacity
+        onPress={() => navigation.navigate("DetailsScreen", { ...item })}
+      >
+        <BlockRGB red={item.red} green={item.green} blue={item.blue} />
+      </TouchableOpacity>
+    );
   }
 
   function addColor() {
@@ -57,16 +63,10 @@ function HomeScreen() {
       <FlatList style={styles.list} data={colorArray} renderItem={renderItem} />
     </View>
   );
+}
 
-  return (
-    <View style={styles.container}>
-      <FlatList
-        style={{ width: "100%" }}
-        data={colorArray}
-        renderItem={renderItem}
-      />
-    </View>
-  );
+function DetailsScreen({ route }) {
+  return <Text>Er... more stuff here soon?</Text>;
 }
 
 const Stack = createStackNavigator();
@@ -76,6 +76,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Kueh Lapis" component={HomeScreen} />
+        <Stack.Screen name="DetailsScreen" component={DetailsScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
