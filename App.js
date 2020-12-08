@@ -1,11 +1,12 @@
 import { StatusBar } from "expo-status-bar";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   StyleSheet,
   Text,
   View,
   FlatList,
   TouchableOpacity,
+  Button,
 } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
@@ -17,6 +18,14 @@ function HomeScreen({ navigation }) {
     { red: 0, green: 255, blue: 0, id: "1" },
     { red: 0, green: 0, blue: 255, id: "2" },
   ]);
+
+  useEffect(() => {
+    navigation.setOptions({
+      headerRight: () => <Button onPress={addColor} title="Add Color" />,
+
+      headerLeft: () => <Button onPress={resetColor} title="Reset Color" />,
+    });
+  });
 
   function renderItem({ item }) {
     return (
