@@ -13,7 +13,7 @@ import BlockRGB from "./components/BlockRGB";
 
 function HomeScreen() {
   const [colorArray, setColorArray] = useState([
-    { red: 255, green: 0, blue: 0, id: "0" },
+    { red: 255, green: 200, blue: 0, id: "0" },
     { red: 0, green: 255, blue: 0, id: "1" },
     { red: 0, green: 0, blue: 255, id: "2" },
   ]);
@@ -29,7 +29,8 @@ function HomeScreen() {
         red: Math.floor(Math.random() * 256),
         green: Math.floor(Math.random() * 256),
         blue: Math.floor(Math.random() * 256),
-        id: `${colorArray.length}`,
+        // id: `${colorArray.length}`,
+        id: colorArray.length.toString(),
       },
     ]);
   }
