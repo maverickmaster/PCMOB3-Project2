@@ -7,8 +7,8 @@ export default function BlockRGB(props) {
       style={{
         backgroundColor: `rgb(${props.red}, ${props.green}, ${props.blue})`,
         padding: 30,
-        width: "100%",
-        height: 50,
+        width: 102,
+        height: 60,
       }}
     ></View>
   );

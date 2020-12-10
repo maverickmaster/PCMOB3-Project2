@@ -69,7 +69,12 @@ function HomeScreen({ navigation }) {
       >
         <Text style={{ color: "blue" }}>Reset colour</Text>
       </TouchableOpacity> */}
-      <FlatList style={styles.list} data={colorArray} renderItem={renderItem} />
+      <FlatList
+        style={styles.list}
+        data={colorArray}
+        renderItem={renderItem}
+        numColumns={4}
+      />
     </View>
   );
 }
